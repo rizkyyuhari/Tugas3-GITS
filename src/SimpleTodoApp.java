@@ -7,12 +7,19 @@ public class SimpleTodoApp {
         td.addTodo("Review Method");
         td.addTodo("Review Overriding");
         td.showTodo();
+        td.removeTodo(1);
+        td.showTodo();
+        td.removeTodo(2);
+        td.showTodo();
     }
 }
 
 abstract class SimpleTodo {
     abstract void showTodo();
     abstract void addTodo(String input);
+    abstract  void removeTodo(int number);
+
+
 }
 
 class SimpleTodoImp extends SimpleTodo {
@@ -39,5 +46,21 @@ class SimpleTodoImp extends SimpleTodo {
             }
         }
 
+    }
+    
+    @Override
+    void removeTodo(int number) {
+        if(number >= todo.length){
+
+        }
+        else{
+            for(int i = (number-1) ; i < todo.length ; i++){
+               if(i >= todo.length-1){
+                   todo[i] = null;
+               }
+
+                else todo[i] = todo[i+1];
+            }
+        }
     }
 }
